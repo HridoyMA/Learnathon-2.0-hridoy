@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface User {
   id: number;
@@ -28,6 +29,8 @@ function Home() {
     <div className="d-flex bg-light text-dark flex-column justify-content-center align-items-center bg-light vh-100">
       <h1>list of users</h1>
       <div className="w-75 rounded bg-white border shadow p-4">
+        <div className="d-flex justify-content-end">
+          <Link to="/create" className="btn btn-primary">Add Member</Link></div>
         <table className="table">
           <thead className="table-dark text-center">
             <tr>
