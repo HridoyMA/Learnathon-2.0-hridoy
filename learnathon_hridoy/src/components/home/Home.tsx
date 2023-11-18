@@ -24,13 +24,25 @@ function Home() {
     .get('http://localhost:3000/users')
     .then(getData => setUserData(getData.data))
     .catch(err => console.log(err));
+  }  
+  const handleDelete = (id: number) =>{
+    const confirm = window.confirm("Are you sure to Delete?");
+    if(confirm)
+    {
+      axios.delete('http://localhost:3000/users/'+id)
+      .then( () =>{
+        location.reload(); // this will refresh the tab
+      })
+      .catch(error => console.log(error));
+    }
   }
+
   return (
-    <div className="d-flex bg-light text-dark flex-column justify-content-center align-items-center bg-light vh-100">
+    <div className="d-flex bg-light text-dark flex-column justify-content-center align-items-center vh-100">
       <h1>list of users</h1>
       <div className="w-75 rounded bg-white border shadow p-4">
         <div className="d-flex justify-content-end">
-          <Link to="/create" className="btn btn-primary">Add Member</Link></div>
+          <Link to="/create" className="btn btn-primary mb-3">Add Member</Link></div>
         <table className="table">
           <thead className="table-dark text-center">
             <tr>
@@ -54,9 +66,9 @@ function Home() {
                   <td>{ data.phone }</td>
                   <td>{ data.website }</td>
                   <td>
-                    <button className="btn btn-outline-info me-3">Read</button>
-                    <button className="btn btn-outline-success me-3">Update</button>
-                    <button className="btn btn-outline-danger">Delete</button>
+                    <Link to={`/read/${data.id}`} className="btn btn-outline-success me-3">Read</Link>
+                    {/* <Link to={`/update/${data.id}`}  className="btn btn-outline-success me-3">Update</Link> */}
+                    <button onClick={ () => handleDelete(data.id) } className="btn btn-outline-danger">Delete</button>
                   </td>
                 </tr>
               ))
