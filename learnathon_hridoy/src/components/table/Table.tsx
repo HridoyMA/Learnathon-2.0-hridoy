@@ -62,7 +62,10 @@ function Table() {
 
   return (
     <div className="d-flex bg-light text-dark flex-column justify-content-center align-items-center vh-100">
-      <h1>list of users</h1>
+      {/* <h1>List Of Players</h1> */}
+      <div className="ft-1">
+                            <h3><span>LIST </span>OF PLAYERS</h3>
+                        </div>
       <div className="w-75 rounded bg-white border shadow p-4">
         <div className="d-flex">
           <form className="d-flex input-group z-0 w-auto" onSubmit={handleSearch}>
