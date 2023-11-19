@@ -18,7 +18,7 @@ function Create() {
     axios.post('http://localhost:3000/users', userData)
     .then(() => {
       // console.log(getData);
-      navigate('/')
+      navigate('/table')
     })
     .catch(err => console.log(err));
   }
@@ -59,7 +59,7 @@ function Create() {
           </div>
           <div className="text-center">
           <button className="btn btn-success">Submit</button>
-          <Link to="/" className="btn btn-primary ms-3">Back</Link>
+          <Link to="/table" className="btn btn-primary ms-3">Back</Link>
           </div>
         </form>
       </div>
