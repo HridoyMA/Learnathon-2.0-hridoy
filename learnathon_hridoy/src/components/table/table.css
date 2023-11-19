@@ -1,0 +1,7 @@
+.table-wrapper {
+    max-height: 420px; 
+    overflow: auto;
+  }
+h6{
+    margin-top: 20px;
+}
